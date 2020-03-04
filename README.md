@@ -75,4 +75,39 @@ In the app’s root directory you can run:
 
 The complete list of scripts can be found in the ```package.json``` file.
 
-## 2. Confifuring and personalizing
+## 3. Confifuring and personalizing
+ ### 3.1 Folder Structure of the app
+ ```
+ my-app
+├── images
+│   ├── favicon.ico
+│   └── manifest
+│       ├── icon-48x48.png
+│       └── ...
+├── src
+│   ├── store.js
+│   ├── actions
+│   │   └── ...
+│   ├── reducers
+│   │   └── ...
+│   ├── components
+│   │   └── ...
+├── test
+│   ├── unit
+│   │   └── ...
+│   └── integration
+│       └── ...
+├── index.html
+├── README.md
+├── package.json
+├── polymer.json
+├── manifest.json
+├── service-worker.js
+├── sw-precache-config.js
+├── wct.conf.json
+├── .travis.yml
+ ```
+ - ```image/``` Image folder store all the icon and picture
+ - ```src/ ``` Where all code lives, this folder include 4 areas:
+    - ```components/``` is the directory that contains all the custom elements in the application.
+    - ``` action/```, ```reducers/``` and ```store.js``` are Redux specific files and folders. Check out the Redux and state management page for details on that setup.
