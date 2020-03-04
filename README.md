@@ -21,6 +21,7 @@ cd my-app
 or we can use the template responsive drawer-layout
 ```
 git clone -b template-responsive-drawer-layout https://github.com/Polymer/pwa-starter-kit.git
+cd pwa-starter-kit
 ```
 
 This will create the inital project **my-app** folder
