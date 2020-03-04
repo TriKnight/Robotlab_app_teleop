@@ -17,4 +17,22 @@ This page will take you through the steps you need to do to build and run the sa
 git clone --depth 1 https://github.com/Polymer/pwa-starter-kit my-app
 cd my-app
 ```
+This will create the inital project **my-app** folder
 
+```
+my-app
+├── images
+│   └── ...
+├── src
+│   └── ...
+├── test
+│   └── ...
+├── index.html
+├── README.md
+├── package.json
+├── polymer.json
+├── manifest.json
+├── service-worker.js
+├── sw-precache-config.js
+├── ... (misc project config files)
+```
