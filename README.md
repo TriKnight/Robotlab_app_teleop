@@ -18,6 +18,11 @@ This page will take you through the steps you need to do to build and run the sa
 git clone --depth 1 https://github.com/Polymer/pwa-starter-kit my-app
 cd my-app
 ```
+or we can use the template responsive drawer-layout
+```
+git clone -b template-responsive-drawer-layout https://github.com/Polymer/pwa-starter-kit.git
+```
+
 This will create the inital project **my-app** folder
 
 ```
