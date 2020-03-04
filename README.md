@@ -37,3 +37,24 @@ my-app
 ├── sw-precache-config.js
 ├── ... (misc project config files)
 ```
+Intall the dependencies
+```
+cd my-app
+npm install
+```
+Run the app in the deveopment mode
+```
+npm start
+```
+This will start a local server on port 8081. Open [http://localhost:8081](http://localhost:8081) to view your app in the browser. Note that this server can continue running as you’re making changes to your application, which you will see if you refresh the browser tab.
+
+If the port is already taken on your computer, or if you need to change the default hostname (because you’re using a Docker container, for example), you can configure them using command line arguments:
+```
+npm start -- --hostname 0.0.0.0 --port 4444
+```
+Run the tests
+
+Check out the Application testing page for more information about the tests. For a quick way to run the tests, run
+```
+npm run test
+```
