@@ -67,4 +67,6 @@ In the app’s root directory you can run:
 - ```npm run build``` to build your application for production (see the Building and deploying section for more details).
 - ```npm run serve``` to serve the built application (see the Building and deploying section for more details).
 
-The complete list of scripts can be found in the package.json file.
+The complete list of scripts can be found in the ```package.json``` file.
+
+## 2. Confifuring and personalizing
