@@ -64,9 +64,13 @@ info:	(default) Build complete!
 
 ```
 ### 2.3 Test the web app
+Running the web app
 ```
-polymer sever --hostname 0.0.0.0
+polymer serve --hostname 0.0.0.0
 ```
+Running the rosbridge socket
+```roslaunch rosbridge_server rosbridge_websocket.launch```
+
 
 ## 3. Confifuring and personalizing
  ### 3.1 Folder Structure of the app
