@@ -1,5 +1,5 @@
-# Robotlab_app
-This is the Robotlab app Tutorial We design the GUI for the Robot
+# Robotlab_app Teleop
+This is the Robotlab app teleop the robot
 
 -----------------------------------------------------
 # STEP1. Install the robotlab app
@@ -73,6 +73,8 @@ Running the rosbridge socket
 ```
 roslaunch rosbridge_server rosbridge_websocket.launch
 ```
+### 2.4 Control the Robot via the web 
+https://www.youtube.com/watch?v=X5Z1rT9VaZA&t=7s
 
 
 ## 3. Confifuring and personalizing
