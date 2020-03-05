@@ -26,6 +26,30 @@ bower polymer#^2.0.0           resolve https://github.com/Polymer/polymer.git#^2
 ..............
 
 ```
+Then you ``` cd ~/bower_components``` folder and install all dependences. Because we use Polymer 2 used file ```file.html```, so we can not use the ```file.js```
+```
+
+git clone -b 2.x https://github.com/PolymerElements/paper-button
+git clone -b 2.x https://github.com/PolymerElements/paper-slider
+git clone -b 2.x https://github.com/PolymerElements/paper-styles
+git clone -b 2.x https://github.com/PolymerElements/iron-flex-layout
+git clone -b 2.x https://github.com/PolymerElements/paper-behaviors
+git clone -b 2.x https://github.com/PolymerElements/iron-a11y-keys-behavior
+git clone -b 2.x https://github.com/PolymerElements/iron-form-element-behavior
+git clone -b 2.x https://github.com/PolymerElements/iron-range-behavior
+git clone -b 2.x https://github.com/PolymerElements/paper-input
+git clone -b 2.x https://github.com/PolymerElements/paper-progress
+git clone -b 2.x https://github.com/PolymerElements/iron-behaviors
+git clone -b 2.x https://github.com/PolymerElements/iron-input
+git clone -b 2.x https://github.com/PolymerElements/paper-ripple
+git clone -b 2.x https://github.com/PolymerElements/paper-ripple
+git clone -b 2.x https://github.com/PolymerElements/iron-a11y-announcer
+git clone -b 2.x https://github.com/PolymerElements/iron-validatable-behavior
+git clone -b 1.x https://github.com/PolymerElements/font-roboto-local
+### rename folder font-roboto-local to front-roboto in (bower_components folder)
+git clone -b 2.x https://github.com/PolymerElements/iron-meta
+
+```
 
 ## 3. Confifuring and personalizing
  ### 3.1 Folder Structure of the app
