@@ -13,20 +13,8 @@ git clone https://github.com/nvnknightdragon/Robotlab_app/
 This include basic teleop app
 
 ## 2. Setup 
-Using bower install all package
 
-```
-cd ~/web_teleop
-bower install
-```
-you will get all package automatically install:
-```
-bower polymer#^2.0.0        not-cached https://github.com/Polymer/polymer.git#^2.0.0
-bower polymer#^2.0.0           resolve https://github.com/Polymer/polymer.git#^2.0.0
-..............
-
-```
-Then you ``` cd ~/bower_components``` folder and install all dependences. Because we use Polymer 2 used file ```file.html```, so we can not use the ```file.js```
+You should ``` cd ~/bower_components``` folder and install all dependences. Because we use Polymer 2 used file ```file.html```, so we can not use the ```file.js```
 ```
 
 git clone -b 2.x https://github.com/PolymerElements/paper-button
@@ -42,12 +30,36 @@ git clone -b 2.x https://github.com/PolymerElements/paper-progress
 git clone -b 2.x https://github.com/PolymerElements/iron-behaviors
 git clone -b 2.x https://github.com/PolymerElements/iron-input
 git clone -b 2.x https://github.com/PolymerElements/paper-ripple
-git clone -b 2.x https://github.com/PolymerElements/paper-ripple
 git clone -b 2.x https://github.com/PolymerElements/iron-a11y-announcer
 git clone -b 2.x https://github.com/PolymerElements/iron-validatable-behavior
 git clone -b 1.x https://github.com/PolymerElements/font-roboto-local
 ### rename folder font-roboto-local to front-roboto in (bower_components folder)
 git clone -b 2.x https://github.com/PolymerElements/iron-meta
+
+```
+Then we are using ```bower install``` all package
+
+```
+cd ~/web_teleop/Robolab_app
+bower install
+```
+you will get all package automatically install:
+```
+bower polymer#^2.0.0        not-cached https://github.com/Polymer/polymer.git#^2.0.0
+bower polymer#^2.0.0           resolve https://github.com/Polymer/polymer.git#^2.0.0
+..............
+
+```
+Next step, we build the app
+```
+cd ~/web_teleop/Robolab_app
+polymer build
+```
+When you got the command, this is sucessful:
+```
+info:	Clearing build/ directory...
+info:	(default) Building...
+info:	(default) Build complete!
 
 ```
 
