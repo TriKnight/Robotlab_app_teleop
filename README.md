@@ -13,7 +13,7 @@ git clone https://github.com/nvnknightdragon/Robotlab_app/
 This include basic teleop app
 
 ## 2. Setup 
-
+### 2.1 Install all dependences
 You should ``` cd ~/bower_components``` folder and install all dependences. Because we use Polymer 2 used file ```file.html```, so we can not use the ```file.js```
 ```
 
@@ -50,6 +50,7 @@ bower polymer#^2.0.0           resolve https://github.com/Polymer/polymer.git#^2
 ..............
 
 ```
+### 2.2 Build the web app
 Next step, we build the app
 ```
 cd ~/web_teleop/Robolab_app
@@ -61,6 +62,10 @@ info:	Clearing build/ directory...
 info:	(default) Building...
 info:	(default) Build complete!
 
+```
+### 2.3 Test the web app
+```
+polymer sever --hostname 0.0.0.0
 ```
 
 ## 3. Confifuring and personalizing
