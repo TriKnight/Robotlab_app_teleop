@@ -68,8 +68,11 @@ Running the web app
 ```
 polymer serve --hostname 0.0.0.0
 ```
+
 Running the rosbridge socket
-```roslaunch rosbridge_server rosbridge_websocket.launch```
+```
+roslaunch rosbridge_server rosbridge_websocket.launch
+```
 
 
 ## 3. Confifuring and personalizing
