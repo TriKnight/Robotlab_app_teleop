@@ -1,0 +1,261 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/ros-websocket/ros-websocket.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">    
+<link rel="import" href="../bower_components/paper-slider/paper-slider.html">
+<link rel="import" href="../bower_components/ros-topic/ros-topic.html">
+<link rel="import" href="../bower_components/ros-service/ros-service.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+<dom-module id="web-teleop-app">
+  <template>
+    <!-- ------------------------------------------------->
+    <!-- Begining the Style of the webpage  -->
+    <!-- ------------------------------------------------->
+    <style is="custom-style" include="iron-flex"></style>
+    <style>
+      :host {
+        display: block;
+      }
+  
+      paper-slider {
+        --paper-slider-input: {
+          width: 100px;
+        }
+      }
+  
+      paper-button {
+        background-color: rgb(139, 184, 161)
+      }
+  
+      #driving {
+        display: inline-block;
+      }
+    </style>
+    <!-- ------------------------------------------------->
+  
+    <!-- ------------------------------------------------->
+    <!-- Setup the ROS connection  -->
+    <!-- ------------------------------------------------->
+  
+    <ros-websocket auto ros="{{ros}}" url="{{url}}" on-connection="_handleConnection" on-close="_handleClose"
+      on-error="_handleError"></ros-websocket>
+  
+    <ros-topic id="baseTopic" ros="{{ros}}" topic="cmd_vel" msg-type="geometry_msgs/Twist"></ros-topic>
+    <!-- ------------------------------------------------->
+
+    <!-- ------------------------------------------------->
+    <!-- Begining the HTML Code for visualize the webpage  -->
+    <h1 align="center">MiniBot teleop</h1>
+    <h2 align="center">Robotlab.vn</h2>
+    <div align="center">
+      [[status]]
+    </div>
+    
+    <div align="center">
+      <div id="driving" class="layout vertical">
+        <div class="layout horizontal">
+          <div class="flex"></div>
+          <paper-button on-down="_startForward" on-up="_endBaseCommand">Forward</paper-button>
+          <div class="flex"></div>
+        </div>
+    
+        <div class="layout horizontal center-center">
+          <paper-button on-down="_Stop" on-up="_endBaseCommand">STOP</paper-button>
+        </div>
+    
+        <div class="layout horizontal">
+    
+          <paper-button on-down="_startLeft" on-up="_endBaseCommand">Left</paper-button>
+    
+          <paper-button on-down="_startBack" on-up="_endBaseCommand">Back</paper-button>
+    
+          <paper-button on-down="_startRight" on-up="_endBaseCommand">Right</paper-button>
+        </div>
+      </div>
+    </div>
+    <!-- END HTML Code for visualize the webpage  -->
+    <!-- ------------------------------------------------->
+  </template>
+  
+  
+  <script>
+
+    /**
+     * Beginning the code functions of ther web
+     * @polymer
+     */
+    class WebTeleopApp extends Polymer.Element {
+        static get is() { return 'web-teleop-app'; }
+        static get properties() {
+          return {
+
+          };
+        }
+    //---------------------------------------------
+    //Connection function status of the websocket
+    //---------------------------------------------
+        _handleConnection() {
+          this.status = 'Connected to the websocket server.';
+          console.log(this.status);
+        }
+        _handleClose() {
+          this.status = 'Closed connection to the websocket server.';
+          console.log(this.status);
+        }
+        _handleError() {
+          this.status = 'Error connecting to the websocket server.';
+          console.log(this.status);
+        }
+    //---------------------------------------------
+
+    //---------------------------------------------
+    // Start forward function
+    //---------------------------------------------
+      _startForward(evt) {
+        evt.preventDefault(); // Prevent right-click menu from showing up after long press on mobile
+        this.status = 'Driving forward...';
+        var baseTopic = this.$.baseTopic; // Get <ros-topic>
+        if (this.baseCommand) {
+          // The timer should not be set at this point, but clear it just in case
+          clearInterval(this.baseCommand);
+        }
+        this.baseCommand = setInterval(function () {
+          baseTopic.publish({
+            linear: {
+              x: 0.2, // Set positive or negative meters/s to drive
+              y: 0,
+              z: 0
+            },
+            angular: {
+              x: 0,
+              y: 0,
+              z: 0 // Set rads/s to turn
+            }
+          });
+        }, 10); // Run this function every 10ms, or approximately 100 times per second.
+      }
+      //---------------------------------------------
+
+      //---------------------------------------------
+      // Start Left function
+      //---------------------------------------------
+
+      _startLeft(evt) {
+        evt.preventDefault(); // Prevent right-click menu from showing up after long press on mobile
+        this.status = 'Turning left...';
+        var baseTopic = this.$.baseTopic; // Get <ros-topic>
+        if (this.baseCommand) {
+          // The timer should not be set at this point, but clear it just in case
+          clearInterval(this.baseCommand);
+        }
+        this.baseCommand = setInterval(function () {
+          baseTopic.publish({
+            linear: {
+              x: 0, // Set positive or negative meters/s to drive
+              y: 0,
+              z: 0
+            },
+            angular: {
+              x: 0,
+              y: 0,
+              z: 0.4 // Set rads/s to turn
+            }
+          });
+        }, 10); // Run this function every 10ms, or approximately 100 times per second.
+      
+      }
+      //---------------------------------------------
+      // Start Right function
+      //---------------------------------------------
+      _startRight(evt) {
+        evt.preventDefault(); // Prevent right-click menu from showing up after long press on mobile
+        this.status = 'Turning Right...';
+        var baseTopic = this.$.baseTopic; // Get <ros-topic>
+        if (this.baseCommand) {
+          // The timer should not be set at this point, but clear it just in case
+          clearInterval(this.baseCommand);
+        }
+        this.baseCommand = setInterval(function () {
+          baseTopic.publish({
+            linear: {
+              x: 0, // Set positive or negative meters/s to drive
+              y: 0,
+              z: 0
+            },
+            angular: {
+              x: 0,
+              y: 0,
+              z: -0.4 // Set rads/s to turn
+            }
+          });
+        }, 10); // Run this function every 10ms, or approximately 100 times per second.
+      }
+
+      //---------------------------------------------
+      // Start Back function
+      //---------------------------------------------
+      _startBack(evt) {
+        evt.preventDefault(); // Prevent right-click menu from showing up after long press on mobile
+        this.status = 'Turning Back...';
+        var baseTopic = this.$.baseTopic; // Get <ros-topic>
+        if (this.baseCommand) {
+          // The timer should not be set at this point, but clear it just in case
+          clearInterval(this.baseCommand);
+        }
+        this.baseCommand = setInterval(function () {
+          baseTopic.publish({
+            linear: {
+              x: -0.2, // Set positive or negative meters/s to drive
+              y: 0,
+              z: 0
+            },
+            angular: {
+              x: 0,
+              y: 0,
+              z: 0 // Set rads/s to turn
+            }
+          });
+        }, 10); // Run this function every 10ms, or approximately 100 times per second.
+      }
+
+      //---------------------------------------------
+      // Stop function
+      //---------------------------------------------
+      _Stop(evt) {
+        evt.preventDefault(); // Prevent right-click menu from showing up after long press on mobile
+        this.status = 'Stopping Robot...';
+        var baseTopic = this.$.baseTopic; // Get <ros-topic>
+        if (this.baseCommand) {
+          // The timer should not be set at this point, but clear it just in case
+          clearInterval(this.baseCommand);
+        }
+        this.baseCommand = setInterval(function () {
+          baseTopic.publish({
+            linear: {
+              x: 0, // Set positive or negative meters/s to drive
+              y: 0,
+              z: 0
+            },
+            angular: {
+              x: 0,
+              y: 0,
+              z: 0 // Set rads/s to turn
+            }
+          });
+        }, 10); // Run this function every 10ms, or approximately 100 times per second.
+      }
+      
+      //---------------------------------------------
+      // Command when release the button
+      //---------------------------------------------
+      _endBaseCommand(evt) {
+        this.status = 'Stopped driving.';
+        clearInterval(this.baseCommand);
+      }
+      doSomething() {
+        console.log('Doing something');
+      }
+    }
+
+    window.customElements.define(WebTeleopApp.is, WebTeleopApp);
+  </script>
+</dom-module>
