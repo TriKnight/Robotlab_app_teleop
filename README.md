@@ -74,7 +74,7 @@ Running the rosbridge socket
 roslaunch rosbridge_server rosbridge_websocket.launch
 ```
 ### 2.4 Control the Robot via the web 
-[![Alt text](https://i9.ytimg.com/vi/X5Z1rT9VaZA/mq3.jpg?sqp=CLeuhPMF&rs=AOn4CLDDojKT8uqvlsR2Gmb_GBNVTaxlBw)](https://www.youtube.com/watch?v=X5Z1rT9VaZA&t=7s)
+[![Alt text](https://i.ytimg.com/vi/X5Z1rT9VaZA/maxresdefault.jpg)](https://www.youtube.com/watch?v=X5Z1rT9VaZA&t=7s)
 
 
 
